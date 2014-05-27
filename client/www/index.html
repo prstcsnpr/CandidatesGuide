@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery/jquery.mobile-1.4.2.css" />
+        <script src="cordova.js"></script>
+        <script src="js/jquery/jquery-2.1.1.js"></script>
+        <script src="js/jquery/jquery.mobile-1.4.2.js"></script>
+        <script src="js/handlebars/handlebars-v1.3.0.js"></script>
+        <script src="js/index.js"></script>
+        <title>Candidates Guide</title>
+    </head>
+    <body>
+        <div data-role="page" id="schoolinfos">
+            <div data-role="header" data-position="fixed" data-theme="b">
+                <h1>学校信息</h1>
+            </div>
+            <div data-role="content" data-theme="b">
+                <input type="search" placeholder="搜索学校、专业名称"/>
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <a href="#schoolinfo">
+                            <img src="http://www.w3school.com.cn/i/chrome.png">
+                            <h2>哈佛大学(Harvard)</h2>
+                            <p>SAT: 100 托福: 110</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#schoolinfo">
+                            <img src="http://www.w3school.com.cn/i/chrome.png">
+                            <h2>哈佛大学(Harvard)</h2>
+                            <p>SAT: 100 托福: 110</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#schoolinfos" data-icon="info" class="ui-btn-active ui-state-persist">学校信息</a></li>
+                        <li><a href="#candidatestools" data-icon="search">报考工具</a></li>
+                        <li><a href="#morefeatures" data-icon="grid">更多功能</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="candidatestools">
+            <div data-role="header" data-position="fixed" data-theme="b">
+                <h1>报考工具</h1>
+            </div>
+            <div data-role="content" data-theme="b">
+                <div data-role="fieldcontain">
+                    <label for="sat">SAT</label>
+                    <input type="text" name="sat" id="sat" />
+                    <label for="toefl">托福</label>
+                    <input type="text" name="toefl" id="toefl" />
+                    <label for="discipline">专业</label>
+                    <input type="text" name="discipline" id="discipline" />
+                    <a href="#candidatesrecommendation" data-role="button">立即计算</a>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#schoolinfos" data-icon="info">学校信息</a></li>
+                        <li><a href="#candidatestools" data-icon="search" class="ui-btn-active ui-state-persist">报考工具</a></li>
+                        <li><a href="#morefeatures" data-icon="grid">更多功能</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="morefeatures">
+            <div data-role="header" data-position="fixed" data-theme="b">
+                <h1>更多功能</h1>
+            </div>
+            <div data-role="content" data-theme="b">
+                <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right">联系师哥师姐</a>
+                <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right">补习班推荐</a>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#schoolinfos" data-icon="info">学校信息</a></li>
+                        <li><a href="#candidatestools" data-icon="search">报考工具</a></li>
+                        <li><a href="#morefeatures" data-icon="grid" class="ui-btn-active ui-state-persist">更多功能</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="candidatesrecommendation">
+            <div data-role="header" data-position="fixed" data-theme="b">
+                <h1>报考工具</h1>
+            </div>
+            <div data-role="content" id="stock-list"  data-theme="b">
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <a href="#schoolinfo">
+                            <h2>80% 麻省理工学院</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#schoolinfo">
+                            <h3>70% 哈佛大学</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#schoolinfo">
+                            <h3>69% 吉林大学</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#schoolinfos" data-icon="info">学校信息</a></li>
+                        <li><a href="#candidatestools" data-icon="search" class="ui-btn-active ui-state-persist">报考工具</a></li>
+                        <li><a href="#morefeatures" data-icon="grid">更多功能</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="schoolinfo">
+            <div data-role="header" data-position="fixed" data-theme="b">
+                <h1>哈佛大学</h1>
+            </div>
+            <div data-role="content" data-theme="b">
+                <h2>学校概况</h2>
+                <p>一大堆情况介绍</p>
+                <h2>录取状况</h2>
+                <p>一大堆文字</p>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#schoolinfos" data-icon="info" class="ui-btn-active ui-state-persist">学校信息</a></li>
+                        <li><a href="#candidatestools" data-icon="search">报考工具</a></li>
+                        <li><a href="#morefeatures" data-icon="grid">更多功能</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
