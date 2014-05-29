@@ -39,21 +39,19 @@
             </div>
             <div data-role="content" data-theme="b">
                 <input type="search" placeholder="搜索学校、专业名称"/>
-                <ul data-role="listview" data-inset="true">
-                    <li>
-                        <a href="#schoolinfo">
-                            <img src="http://www.w3school.com.cn/i/chrome.png">
-                            <h2>哈佛大学(Harvard)</h2>
-                            <p>SAT: 100 托福: 110</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#schoolinfo">
-                            <img src="http://www.w3school.com.cn/i/chrome.png">
-                            <h2>哈佛大学(Harvard)</h2>
-                            <p>SAT: 100 托福: 110</p>
-                        </a>
-                    </li>
+                <script id="schoolinfos-content-template" type="text/x-handlebars-template">
+                    {{#each list}}
+                        <li>
+                            <a href="#schoolinfo" class="schoolinfos-schoolitem">
+                                <img src="http://www.w3school.com.cn/i/chrome.png">
+                                <input type="hidden" value="{{id}}" />
+                                <h2>{{name}}({{englishName}})</h2>
+                                <p>SAT: {{sat}} 托福: {{toefl}}</p>
+                            </a>
+                        </li>
+                    {{/each}}
+                </script>
+                <ul data-role="listview" data-inset="true" id="schoolinfos-content">
                 </ul>
             </div>
             <div data-role="footer" data-position="fixed" data-theme="b">
@@ -73,12 +71,12 @@
             <div data-role="content" data-theme="b">
                 <div data-role="fieldcontain">
                     <label for="sat">SAT</label>
-                    <input type="text" name="sat" id="sat" />
+                    <input type="text" name="sat" id="candidatestools－sat" />
                     <label for="toefl">托福</label>
-                    <input type="text" name="toefl" id="toefl" />
+                    <input type="text" name="toefl" id="candidatestools－toefl" />
                     <label for="discipline">专业</label>
-                    <input type="text" name="discipline" id="discipline" />
-                    <a href="#candidatesrecommendation" data-role="button">立即计算</a>
+                    <input type="text" name="discipline" id="candidatestools－discipline" />
+                    <a href="#candidatesrecommendation" data-role="button" id="candidatestools－calculate">立即计算</a>
                 </div>
             </div>
             <div data-role="footer" data-position="fixed" data-theme="b">
@@ -113,23 +111,18 @@
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>报考工具</h1>
             </div>
-            <div data-role="content" id="stock-list"  data-theme="b">
-                <ul data-role="listview" data-inset="true">
-                    <li>
-                        <a href="#schoolinfo">
-                            <h2>80% 麻省理工学院</h2>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#schoolinfo">
-                            <h3>70% 哈佛大学</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#schoolinfo">
-                            <h3>69% 吉林大学</h3>
-                        </a>
-                    </li>
+            <div data-role="content" data-theme="b">
+                <script id="candidatesrecommendation-content-template" type="text/x-handlebars-template">
+                    {{#each list}}
+                        <li>
+                            <a href="#schoolinfo" class="candidatesrecommendation-schoolitem">
+                                <input type="hidden" value="2" />
+                                <h2>{{rate}} {{name}}</h2>
+                            </a>
+                        </li>
+                    {{/each}}
+                </script>
+                <ul data-role="listview" data-inset="true" id="candidatesrecommendation-content">
                 </ul>
             </div>
             <div data-role="footer" data-position="fixed" data-theme="b">
@@ -143,14 +136,14 @@
             </div>
         </div>
         <div data-role="page" id="schoolinfo">
-            <div data-role="header" data-position="fixed" data-theme="b">
-                <h1>哈佛大学</h1>
+            <div data-role="header" data-position="fixed" data-theme="b" id="schoolinfo-header">
+                <h1 id="schoolinfo-schoolname"></h1>
             </div>
-            <div data-role="content" data-theme="b">
+            <div data-role="content" data-theme="b" id="schoolinfo-content">
                 <h2>学校概况</h2>
-                <p>一大堆情况介绍</p>
+                <p id="schoolinfo-schoolprofile"></p>
                 <h2>录取状况</h2>
-                <p>一大堆文字</p>
+                <p id="schoolinfo-admissionstatus"></p>
             </div>
             <div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar">
