@@ -27,9 +27,9 @@ $(document).on("pageinit", "#schoolinfos", function() {
 			url:PREFIX_URL+"/schoolinfos",
 			dataType:"json",
 			success:function(data) {
-				list = new Array();
+				var list = new Array();
 				for (var i = 0; i < data.result.length; i++) {
-					school_info = {};
+					var school_info = {};
 					school_info.id = data.result[i].id;
 					school_info.name = data.result[i].name;
 					school_info.sat = data.result[i].sat;
